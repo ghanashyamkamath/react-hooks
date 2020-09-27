@@ -5,20 +5,27 @@ function DataFetching() {
 
     const [post,setPost] = useState({})
     const [id,setId] = useState(1)
+    const [idFromButtonClick,setidFromButtonClick] =useState(1)
     
-    useEffect(() =>{
-        axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
-        .then(res=>{
-            console.log(res)
-            setPost(res.data)
+    useEffect(() => {
+      axios
+        .get(`https://jsonplaceholder.typicode.com/posts/${idFromButtonClick}`)
+        .then((res) => {
+          console.log(res);
+          setPost(res.data);
         })
-        .catch(err =>{
-            console.log(err)
+        .catch((err) => {
+          console.log(err);
         });
-    },[id])
+    }, [idFromButtonClick]);
+
+    const handleClick = () =>{
+        setidFromButtonClick(id)
+    }
     return (
         <div>
             <input type="text" value={id} onChange={e => setId(e.target.value)}/>
+            <button type="button" onClick={handleClick}>Fetch Post</button>
             <div>{post.title}</div>
             {/* <ul>
                 {
