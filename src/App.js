@@ -11,6 +11,7 @@ import HookMouse from './components/HookMouse';
 import MouseContainer from './components/MouseContainer';
 import DataFetching from './components/DataFetching';
 import ComponentC from './components/ComponentC';
+import CounterOne from './components/CounterOne';
 
 export const UserContext = React.createContext()
 export const ChannelContext = React.createContext();
@@ -28,14 +29,15 @@ function App() {
       {/* <MouseContainer /> */}
       {/* <DataFetching /> */}
 
-      <UserContext.Provider value={'shyam'}>
+      {/* <UserContext.Provider value={'shyam'}>
         <ChannelContext.Provider value={'sandeep'}>
 
             <ComponentC />
         </ChannelContext.Provider>
 
           
-      </UserContext.Provider>
+      </UserContext.Provider> */}
+      <CounterOne />
     </div>
   );
 }
